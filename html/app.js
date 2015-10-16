@@ -1,4 +1,7 @@
 (function(){
+    var MSG_APPROXIMATE = '<p>This is an approximate WiFi coverage area. The council does not provide this data.</p>';
+    var MSG_NOWARRANTY = '<p>These WiFi locations are provided for free by <a href="http://www.brisbane.qld.gov.au/facilities-recreation/wi-fi-brisbane">Brisbane City Council</a> and aren\'t to scale. Your experience may vary.</p>';
+
     // Provide your access token
     L.mapbox.accessToken = 'pk.eyJ1IjoiYXNoa3lkIiwiYSI6ImNsajB0NWMifQ.A8PtczW284fnWFD6dy3xLQ';
 
@@ -79,7 +82,7 @@
         showCoverageOnHover: false,
         removeOutsideVisibleBounds: true,
         maxClusterRadius: 150,
-        disableClusteringAtZoom: 17
+        disableClusteringAtZoom: 16
     }).addTo(map);
 
     map.on('zoomend', function(){
@@ -131,42 +134,45 @@
     get('data/workspaces.json', function(err, data){
         try{
             data = JSON.parse(data);
-            data.features.forEach(function(feature){
-                L.marker(feature.geometry.coordinates.reverse(), {
-                    icon: workspaceIcon
-                })
-                    .bindPopup([
-                        '<h2>'+feature.properties.type+'</h2>',
-                        '<p>'+(feature.properties.desc || 'No description provided')+'</p>'
-                    ].join(''))
-                    .addTo(workspaces);
-            });
-            // map.addLayer(workspaces);
         } catch(e){
             console.error('Workspaces unparseable', e);
+            return;
         }
+        data.features.forEach(function(feature){
+            L.marker(feature.geometry.coordinates.reverse(), {
+                    icon: workspaceIcon
+                })
+                .bindPopup([
+                    '<h2>'+feature.properties.type+'</h2>',
+                    '<p>'+(feature.properties.desc || 'No description provided')+'</p>'
+                ].join(''))
+                .addTo(workspaces);
+        });
     });
 
     // Show wifi heatmap
     get('data/wifi.json', function(err, data){
         try{
             data = JSON.parse(data);
-            var APs = data.features
-                .filter(function(feature){
-                    return feature.geometry.type === 'Point';
-                })
-                .map(function(feature){
-                    return feature.geometry.coordinates.reverse();
-                });
-            APs.forEach(function(ap){
-                L.marker(ap, {
-                    icon: hotspotIcon
-                }).addTo(wifiIcons);
-            });
-            wifi.setLatLngs(APs);
         } catch(e){
             console.log('wifi unparseable', e);
+            return;
         }
+        var APs = data.features
+            .map(function(feature){
+                var coord = feature.geometry.coordinates.reverse();
+                L.marker(coord, {
+                        icon: hotspotIcon
+                    })
+                    .bindPopup([
+                        '<h2>'+(feature.properties.name || 'WiFi Hotspot')+'</h2>',
+                        (feature.properties.desc ? ('<p>'+feature.properties.desc+'</p>') : ''),
+                        (feature.properties.approximate ? MSG_APPROXIMATE : MSG_NOWARRANTY),
+                    ].join(''))
+                    .addTo(wifiIcons);
+                return coord;
+            });
+        wifi.setLatLngs(APs);
     });
 
     var bounds;
