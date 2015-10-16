@@ -26,6 +26,34 @@
             "geometry":{
                 "type":"Point",
                 "coordinates":[
+                    153.03398655698973,
+                    -27.45762168352573
+                ]
+            }
+        },
+        {
+            "type":"Feature",
+            "properties":{
+                "name":"Approximate AP",
+                "desc":"Approximate access point location. The council does not provide this data."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    153.03327872035027,
+                    -27.458289038119275
+                ]
+            }
+        },
+        {
+            "type":"Feature",
+            "properties":{
+                "name":"Approximate AP",
+                "desc":"Approximate access point location. The council does not provide this data."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
                     153.02188488440652,
                     -27.47662505380532
                 ]
@@ -68,8 +96,36 @@
             "geometry":{
                 "type":"Point",
                 "coordinates":[
+                    153.03476517729305,
+                    -27.45827333570465
+                ]
+            }
+        },
+        {
+            "type":"Feature",
+            "properties":{
+                "name":"Approximate AP",
+                "desc":"Approximate access point location. The council does not provide this data."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
                     153.02435618258957,
                     -27.48043833109246
+                ]
+            }
+        },
+        {
+            "type":"Feature",
+            "properties":{
+                "name":"Approximate AP",
+                "desc":"Approximate access point location. The council does not provide this data."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    153.03404849269563,
+                    -27.45897601656996
                 ]
             }
         },
