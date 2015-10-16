@@ -1,0 +1,107 @@
+/* General */
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: "Open Sans", sans-serif;
+}
+h1, h2{
+    font-weight:700;
+}
+header,
+footer{
+    background: #545454;
+    color:white;
+    overflow:hidden;
+    box-shadow: 0 0 .3em rgba(0,0,0,.5);
+    z-index:2;
+    position:relative;
+}
+
+#map{
+    width:100%;
+}
+
+footer p{
+    padding:10px;
+    font-size: 12px;
+    text-align:right;
+    font-family: arial, sans-serif;
+}
+
+header h1{
+    float:left;
+    padding:0 10px;
+    font-weight:normal;
+}
+header p{
+    float:right;
+    margin-right:10px;
+}
+header img{
+    float:left;
+    width:44px;
+    height:44px;
+    margin:10px 0 10px 10px;
+}
+header{
+    line-height:64px;
+}
+
+a{
+    color: #fff;
+}
+
+@media (max-width: 800px){
+    header{
+        line-height:1.2;
+    }
+    header h1{
+        float:none !important;
+        padding:20px 20px 10px;
+        font-size:1.3em;
+    }
+    header img{
+        margin-right:10px;
+    }
+    header p{
+        display:none;
+    }
+}
+
+/* Marker cluster */
+
+.leaflet-overlay-pane path{
+    /* Don't display pane outlines */
+    display:none!important;
+}
+.marker-cluster {
+	background-color: rgba(255,255,255,.5);
+	background-clip: padding-box;
+	border-radius: 20px;
+    box-shadow: 0 0 .5em rgba(0,0,0,.4);
+}
+.marker-cluster div {
+	background-color: #545454;
+    border-radius:2px solid white;
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+
+	text-align: center;
+	border-radius: 15px;
+    color:white;
+	font: bold 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    transition: all .2s;
+    -webkit-transition: all .1s;
+}
+
+.marker-cluster:hover div{
+    transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+}
+.marker-cluster span {
+	line-height: 30px;
+}

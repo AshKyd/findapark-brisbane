@@ -1,0 +1,24 @@
+{
+  "name": "working-in-brisbane",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm dist -rf;mkdir -p dist/data;",
+    "build-workspaces": "node scrapers/workspaces > dist/data/workspaces.json",
+    "build-wifi": "./scrapers/wifi/go.sh > dist/data/wifi.json",
+    "build": "npm run clean;npm run build-workspaces & npm run build-wifi & cp html/* dist/;wait;",
+    "deploy": "npm run build&&rsync -avz dist/* direct.ash.ms:/home/ash/findapark/"
+  },
+  "author": "",
+  "license": "BSD",
+  "devDependencies": {
+    "request": "~2.65.0",
+    "babyparse": "~0.4.3",
+    "async": "~1.4.2",
+    "cheerio": "~0.19.0",
+    "unzip": "~0.1.11",
+    "togeojson": "~0.13.0",
+    "jsdom": "^3.0.0"
+  }
+}

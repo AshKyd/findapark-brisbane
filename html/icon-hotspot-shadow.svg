@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="8.1955mm" width="10.361mm" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 36.713632 29.039101" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<defs>
+<linearGradient id="a" y2="21.794" gradientUnits="userSpaceOnUse" x2="27.741" y1="21.794" x1="2.5988">
+<stop offset="0"/>
+<stop stop-opacity="0" offset="1"/>
+</linearGradient>
+<filter id="b" style="color-interpolation-filters:sRGB" height="1.4587" width="1.2963" y="-.22934" x="-.14813">
+<feGaussianBlur stdDeviation="1.5284101"/>
+</filter>
+</defs>
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<ellipse opacity=".437" rx="12.571" ry="7.696" transform="matrix(.88902 -.45787 .45787 .88902 -5.108 2.0905)" filter="url(#b)" cy="21.794" cx="15.17" fill="url(#a)"/>
+</svg>
