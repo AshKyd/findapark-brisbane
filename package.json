@@ -8,7 +8,7 @@
     "build-workspaces": "node scrapers/workspaces > dist/data/workspaces.json",
     "build-wifi": "./scrapers/wifi/go.sh > dist/data/wifi.json",
     "build": "npm run clean;npm run build-workspaces & npm run build-wifi & cp html/* dist/;wait;",
-    "deploy": "npm run build&&rsync -avz dist/* direct.ash.ms:/home/ash/findapark/"
+    "deploy": "npm run build&&rsync -avz dist/* pi@192.168.0.30:/var/www/kyd.com.au/findapark/"
   },
   "author": "",
   "license": "BSD",
