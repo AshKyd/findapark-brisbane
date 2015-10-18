@@ -70,12 +70,43 @@ a{
     }
 }
 
-/* Marker cluster */
-
-.leaflet-overlay-pane path{
-    /* Don't display pane outlines */
-    display:none!important;
+/* Geolocate */
+.leaflet-control-geolocate a{
+    position:relative;
 }
+
+.leaflet-control-geolocate svg{
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-top:-8px;
+    margin-left:-8px;
+}
+
+.leaflet-control-geolocate svg path{
+    stroke: #aaaaaa;
+    transition: all .2s ease;
+}
+
+.leaflet-control-geolocate.searching svg path{
+    stroke: #888888;
+}
+
+.leaflet-control-geolocate.searching svg .crosshairs-outer{
+    stroke-opacity: 1;
+}
+.leaflet-control-geolocate.searching svg .crosshairs-inner{
+    stroke-opacity: .5;
+}
+
+.leaflet-control-geolocate.fixed path{
+    stroke: #4EC9FF;
+}
+.leaflet-control-geolocate.error path{
+    stroke: #FFAAAA;
+}
+
+/* Marker cluster */
 .marker-cluster {
 	background-color: rgba(255,255,255,.5);
 	background-clip: padding-box;
@@ -104,4 +135,10 @@ a{
 }
 .marker-cluster span {
 	line-height: 30px;
+}
+.leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+-webkit-transition: -webkit-transform 0.3s ease-out, opacity 0.3s ease-in;
+-moz-transition: -moz-transform 0.3s ease-out, opacity 0.3s ease-in;
+-o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
+transition: transform 0.3s ease-out, opacity 0.3s ease-in;
 }

@@ -19,16 +19,20 @@
     }
     resize();
 
+
+
     // var map = L.mapbox.map(eleMap, 'ashkyd.nne4phnd');
     var map = L.mapbox.map(eleMap, 'mapbox.emerald', {
-        maxBounds: [
-            [-27.749177005163993,153.74542236328125],
-            [-27.242420623444822,152.42706298828125],
-        ],
-        minZoom:8,
+        // maxBounds: [
+        //     [-27.749177005163993,153.74542236328125],
+        //     [-27.242420623444822,152.42706298828125],
+        // ],
+        // minZoom:8,
         center: [-27.4669, 153.0244],
         zoom: 15
     });
+
+    var geo = new GeolocateControl().addTo(map);
 
     function numberise(num){
         return parseFloat(num);
